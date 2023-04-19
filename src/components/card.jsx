@@ -28,7 +28,7 @@ export default function Card (props) {
                                 stars.map((val,i) => {
                                     if(rating-i>=1) return (<Star size={18} weight="fill" />)
                                     if(rating-i>=0) return (<StarHalf size={18} weight="fill" />)
-                                    return (<Star size={18} weight="bold" />)
+                                    return (<Star key={i} size={18} weight="bold" />)
                                 })
                             }
                         </div>

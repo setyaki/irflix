@@ -35,7 +35,7 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
             {data.map((movie,i) => {
                 return (
-                    <Card  movie={movie}/>
+                    <Card key={i} movie={movie}/>
                 )
             })}
             </div>
