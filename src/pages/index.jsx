@@ -15,7 +15,7 @@ export default function Home() {
   
     return (<>
     {/* code here */}
-    <nav className="invisible sm:visible bg-gradient-to-b from-slate-950 to-slate-950/0 text-white shadow px-9 pb-9 pt-6 w-full h-auto fixed top-0 left-0 right-0 z-50">
+    <nav className="invisible sm:visible bg-gradient-to-b from-slate-950 to-slate-950/0 text-white px-9 pb-9 pt-6 w-full h-auto fixed top-0 left-0 right-0 z-50">
         <div className="flex flex-row justify-between">
             <h1 className=" text-4xl italic uppercase font-extrabold">irflix</h1>
             <TopSearch/>
