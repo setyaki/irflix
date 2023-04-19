@@ -1,16 +1,20 @@
 import Card from "@/components/card";
 import Footer from "@/components/footer";
-import Header from "@/components/hero";
+import Hero from "@/components/hero";
 import TopSearch from "@/components/topSearch";
-import { MagnifyingGlass } from "@phosphor-icons/react";
 import { useEffect, useState } from 'react'
 
 export default function Home() {
     const [data, setData] = useState([])
+    const [firstData, setFirstData] = useState([])
     useEffect(() => {
       fetch(`/api/getMovieList`)
       .then((result) => result.json())
-      .then((data) => setData(data))
+      .then((data) => {
+        setData(data)
+        setFirstData(data[0])
+    })
+    
     },[])
   
     return (<>
@@ -23,14 +27,14 @@ export default function Home() {
         </div>
 
         </nav>
-        
-        <Header/>
+
+        <Hero key={0} movie={firstData}/>
         
         <section className=" bg-slate-900 py-24">
             <div className="container mx-auto px-6">
                 <div className="inline">
                     
-                    <h2 className="text-white text-3xl font-bold border-l-4 border-red-600 pl-2 leading-tight mb-9"> Trending This Week</h2>
+                    <h2 className="text-white text-3xl font-bold border-l-4 border-red-600 pl-2 leading-tight mb-9"> Popular Movies This Week</h2>
                 </div>
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
             {data.map((movie,i) => {
