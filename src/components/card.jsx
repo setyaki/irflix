@@ -3,7 +3,7 @@ import { Star, StarHalf } from "@phosphor-icons/react";
 
 export default function Card (props) {
     const imageURL = `${process.env.NEXT_PUBLIC_REACT_APP_BASEIMGURL}/${props.movie.poster_path}`;
-    console.log("Image URL:", imageURL);
+    
     let stars=[...Array(5)]
     const rating=props.movie.vote_average/2;
 
@@ -13,7 +13,7 @@ export default function Card (props) {
             width={500} height={800}
             alt={props.movie.title} 
                 />
-            {console.log(`${process.env.NEXT_PUBLIC_REACT_APP_BASEIMGURL}`)}
+            {/* {console.log(`${process.env.NEXT_PUBLIC_REACT_APP_BASEIMGURL}`)} */}
             <div className="flex flex-col flex-grow p-6 justify-between">
                 <h2 className="text-2xl text-white font-bold mb-4">{props.movie.title}</h2>
                 
