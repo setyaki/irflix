@@ -1,9 +1,11 @@
 import Image from "next/image"
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
 import { PlayCircle } from "@phosphor-icons/react";
 
 export default function Hero ({data, video}) {
     let trailerLink = "";
-    const trailerData = video.results.find(
+    const trailerData = video.results && video.results.find(
         (video) => video.site === 'YouTube' && video.type === 'Trailer' && video.official
       );
       
@@ -21,8 +23,8 @@ export default function Hero ({data, video}) {
                 <div className="flex flex-grow justify-between items-center flex-col md:flex-row lg:flex-row ">
                     <div className="flex flex-col align-middle max-w-2xl">
                         <span className="text-xl font-semibold italic mb-9 text-red-500">#1 Most Popular Movie This Week</span>
-                        <h1 className="text-6xl font-extrabold leading-tight mb-6">{data.title}</h1>
-                        <p className="text-xl mb-4">{data.overview}</p>
+                        <h1 className="text-6xl font-extrabold leading-tight mb-6">{data.title || <Skeleton/>}</h1>
+                        <p className="text-xl mb-4">{data.overview || <Skeleton count={10} />}</p>
                         <div className="flex flex-wrap gap-2">
                             {data.genres.map((genre) => (
                                 <div

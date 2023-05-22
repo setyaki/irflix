@@ -33,7 +33,7 @@ export default function Card (props) {
                             }
                         </div>
                         <div className="flex justify-end">
-                            <p className=" text-amber-400 font-bold text-2xl mt-0 justify-end">{props.movie.vote_average/2}</p>
+                            <p className=" text-amber-400 font-bold text-2xl mt-0 justify-end">{props.movie.vote_average}</p>
                         </div>
                     </div>
                 </div>
