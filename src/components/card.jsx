@@ -2,7 +2,6 @@ import Image from "next/image"
 import { Star, StarHalf } from "@phosphor-icons/react";
 
 export default function Card (props) {
-    const imageURL = `${process.env.NEXT_PUBLIC_REACT_APP_BASEIMGURL}/${props.movie.poster_path}`;
     
     let stars=[...Array(5)]
     const rating=props.movie.vote_average/2;

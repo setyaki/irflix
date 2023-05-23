@@ -1,7 +1,5 @@
 import Image from "next/image"
-import Skeleton from 'react-loading-skeleton'
-import 'react-loading-skeleton/dist/skeleton.css'
-import { PlayCircle } from "@phosphor-icons/react";
+import { PlayCircle, Translate } from "@phosphor-icons/react";
 
 export default function Hero ({data, video}) {
     let trailerLink = "";
@@ -17,14 +15,15 @@ export default function Hero ({data, video}) {
         console.log('Trailer not found');
       }
 // console.log("props", data)
+
     return (
         <header className="bg-slate-950 text-white py-24 h-screen ">
             <div className="container flex mx-auto px-4 h-full mt-6">
                 <div className="flex flex-grow justify-between items-center flex-col md:flex-row lg:flex-row ">
                     <div className="flex flex-col align-middle max-w-2xl">
-                        <span className="text-xl font-semibold italic mb-9 text-red-500">#1 Most Popular Movie This Week</span>
-                        <h1 className="text-6xl font-extrabold leading-tight mb-6">{data.title || <Skeleton/>}</h1>
-                        <p className="text-xl mb-4">{data.overview || <Skeleton count={10} />}</p>
+                        <span className="text-xl font-semibold italic mb-3 text-red-500">#1 Most Popular Movie This Week</span>
+                        <h1 className="text-6xl font-extrabold leading-tight mb-6">{data.title}</h1>
+                        <p className="text-xl mb-4">{data.overview}</p>
                         <div className="flex flex-wrap gap-2">
                             {data.genres.map((genre) => (
                                 <div
@@ -34,8 +33,18 @@ export default function Hero ({data, video}) {
                                 >
                                     {genre.name}
                                 </div>
+                                
                             ))}
+
+                            <div className= "py-2 px-4 rounded-full text-white text-opacity-80 font-light border-white border border-opacity-50">
+                              <div className="flex flex-row items-center">
+                                    <Translate size={24} weight="light" className="mr-1" />
+                                    <span className="uppercase">{data.original_language}</span>
+                              </div>   
+                              
+                            </div>
                         </div>
+
                         <div className="flex flex-row gap-4 mt-9">
                         <button className="bg-white hover:text-red-800 transition duration-300 ease-in-out text-red-600 font-bold py-3 px-6 rounded-full">
                             <a href={trailerLink} target="_blank" rel="noopener noreferrer">

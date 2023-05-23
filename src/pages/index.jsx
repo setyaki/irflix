@@ -2,6 +2,7 @@ import Card from "@/components/card";
 import Footer from "@/components/footer";
 import Hero from "@/components/hero";
 import TopSearch from "@/components/topSearch";
+import Link from 'next/link';
 import { useEffect, useState } from 'react'
 
 export default function Home() {
@@ -56,7 +57,11 @@ export default function Home() {
                             </div>
                             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
                                 {data.map((movie, i) => (
-                                    <Card key={i} movie={movie}/>
+                                    <Link href={{
+                                        pathname:'/movie/[movieId]',
+                                        query:{movieId: movie.id}}}>
+                                            <Card key={i} movie={movie}/>
+                                    </Link>
                                 ))}
                             </div>
                         </div>
