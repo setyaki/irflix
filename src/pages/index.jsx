@@ -57,7 +57,7 @@ export default function Home() {
                             </div>
                             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
                                 {data.map((movie, i) => (
-                                    <Link href={{
+                                    <Link key={i} href={{
                                         pathname:'/movie/[movieId]',
                                         query:{movieId: movie.id}}}>
                                             <Card key={i} movie={movie}/>
