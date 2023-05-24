@@ -8,6 +8,7 @@ import {
   Star,
 } from "@phosphor-icons/react";
 import { useEffect, useState } from "react";
+import SkeletonHero from "@/components/skeletonHero";
 
 export default function MovieDetails() {
   const router = useRouter();
@@ -69,7 +70,9 @@ export default function MovieDetails() {
   }, [movieId]);
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return (
+        <SkeletonHero />
+      )
   }
 
   if (!movieDetails) {
