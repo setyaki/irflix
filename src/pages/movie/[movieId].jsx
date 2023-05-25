@@ -10,6 +10,7 @@ import {
 import { useEffect, useState } from "react";
 import SkeletonHero from "@/components/skeletonHero";
 
+
 export default function MovieDetails() {
   const router = useRouter();
   const { movieId } = router.query;
@@ -17,33 +18,28 @@ export default function MovieDetails() {
   const [movieVideo, setMovieVideo] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isNavbarVisible, setIsNavbarVisible] = useState(true);
-  const [prevScrollPos, setPrevScrollPos] = useState(0);
+  
 
   useEffect(() => {
+    const threshold = 50; // Adjust this value to set the scroll threshold
+  
     const handleScroll = () => {
-      if (typeof window !== "undefined") {
-        const currentScrollPos = window.pageYOffset;
-
-        if (prevScrollPos > currentScrollPos) {
-          setIsNavbarVisible(true); // Show navbar on scroll up
-        } else {
-          setIsNavbarVisible(false); // Hide navbar on scroll down
-        }
-
-        setPrevScrollPos(currentScrollPos);
-      }
+      const currentScrollPos = window.pageYOffset;
+      const isScrolledUp = currentScrollPos < threshold;
+  
+      setIsNavbarVisible(isScrolledUp);
     };
-
+  
     if (typeof window !== "undefined") {
       window.addEventListener("scroll", handleScroll);
     }
-
+  
     return () => {
       if (typeof window !== "undefined") {
         window.removeEventListener("scroll", handleScroll);
       }
     };
-  }, [prevScrollPos]);
+  }, []);
 
   useEffect(() => {
     if (movieId) {
@@ -97,7 +93,7 @@ export default function MovieDetails() {
   //movieDetails = succeed
   return (
     <div>
-      <nav
+        <nav
         className={`invisible sm:visible bg-gradient-to-b from-slate-950 to-slate-950/0 text-white px-9 pb-9 pt-6 w-full h-auto fixed top-0 left-0 right-0 z-50 ${
           isNavbarVisible
             ? "visible"
@@ -138,7 +134,8 @@ export default function MovieDetails() {
           </div>
         </div>
       </nav>
-
+      
+      
       {/* Display other movie details */}
       <div
         className="bg-slate-950 text-white w-full py-24 sm:py-12 xl:h-screen"
@@ -190,7 +187,7 @@ export default function MovieDetails() {
                       className="mr-2 text-amber-400"
                     />
                     <p className=" text-amber-400 font-bold text-2xl">
-                      {movieDetails.vote_average}
+                      {movieDetails.vote_average.toFixed(1)}
                     </p>
                   </div>
                   <div className="flex">

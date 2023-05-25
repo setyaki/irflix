@@ -59,7 +59,7 @@ export default function Hero({ data, video }) {
                     className="mr-2 text-amber-400"
                   />
                   <p className=" text-amber-400 font-bold text-2xl">
-                    {data.vote_average}
+                    {data.vote_average.toFixed(1)}
                   </p>
                 </div>
                 <div className="flex">
