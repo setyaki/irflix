@@ -10,7 +10,6 @@ import {
 import { useEffect, useState } from "react";
 import SkeletonHero from "@/components/skeletonHero";
 import SubscribeModal from "@/components/SubscribeModal";
-import TailwindModal from "@/components/tailwindModal";
 
 
 
