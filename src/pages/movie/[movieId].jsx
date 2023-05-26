@@ -9,7 +9,7 @@ import {
 } from "@phosphor-icons/react";
 import { useEffect, useState } from "react";
 import SkeletonHero from "@/components/skeletonHero";
-import SubscribeModal from "@/components/SubscribeModal";
+import SubscribeModal from "@/components/subscribeModal";
 
 
 

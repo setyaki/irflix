@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { PlayCircle, Translate, Star, UsersThree } from "@phosphor-icons/react";
 import { useState } from "react";
-import SubscribeModal from "@/components/SubscribeModal";
+import SubscribeModal from "@/components/subscribeModal";
 
 export default function Hero({ data, video }) {
   

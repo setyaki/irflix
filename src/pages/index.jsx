@@ -5,7 +5,7 @@ import SkeletonHero from "@/components/skeletonHero";
 import TopSearch from "@/components/topSearch";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import SubscribeModal from "@/components/SubscribeModal";
+import SubscribeModal from "@/components/subscribeModal";
 
 export default function Home() {
   const [data, setData] = useState([]);
