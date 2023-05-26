@@ -9,6 +9,9 @@ import {
 } from "@phosphor-icons/react";
 import { useEffect, useState } from "react";
 import SkeletonHero from "@/components/skeletonHero";
+import SubscribeModal from "@/components/SubscribeModal";
+import TailwindModal from "@/components/tailwindModal";
+
 
 
 export default function MovieDetails() {
@@ -18,6 +21,8 @@ export default function MovieDetails() {
   const [movieVideo, setMovieVideo] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isNavbarVisible, setIsNavbarVisible] = useState(true);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   
 
   useEffect(() => {
@@ -96,7 +101,7 @@ export default function MovieDetails() {
         <nav
         className={`invisible sm:visible bg-gradient-to-b from-slate-950 to-slate-950/0 text-white px-9 pb-9 pt-6 w-full h-auto fixed top-0 left-0 right-0 z-50 ${
           isNavbarVisible
-            ? "visible"
+            ? "visible transition-all duration-400"
             : "transform translate-y-[-100%] transition-all duration-300"
         }`}
       >
@@ -111,7 +116,7 @@ export default function MovieDetails() {
             </div>
           </button>
           <h1 className="text-4xl italic uppercase font-extrabold">irflix</h1>
-          <button className="hidden sm:block bg-red-600 hover:bg-red-800 transition duration-300 ease-in-out text-white font-medium py-3 px-6 rounded-full">
+          <button className="hidden sm:block bg-red-600 hover:bg-red-800 transition duration-300 ease-in-out text-white font-medium py-3 px-6 rounded-full" onClick={() => setIsModalOpen(true)}>
             Subscribe
           </button>
 
@@ -232,6 +237,10 @@ export default function MovieDetails() {
           </div>
         </div>
       </div>
+      {isModalOpen && (
+        <SubscribeModal onClose={() => setIsModalOpen(false)} />
+        )}
+
     </div>
   );
 }

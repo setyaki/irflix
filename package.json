@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.14",
     "@phosphor-icons/react": "^2.0.8",
     "@tailwindcss/typography": "^0.5.9",
     "autoprefixer": "10.4.14",

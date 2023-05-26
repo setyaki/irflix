@@ -1,7 +1,12 @@
 import Image from "next/image";
 import { PlayCircle, Translate, Star, UsersThree } from "@phosphor-icons/react";
+import { useState } from "react";
+import SubscribeModal from "@/components/SubscribeModal";
 
 export default function Hero({ data, video }) {
+  
+  const [isModalOpen, setIsModalOpen] = useState(false); //modalsubscribe
+
   let trailerLink = "";
   const trailerData =
     video.results &&
@@ -20,7 +25,7 @@ export default function Hero({ data, video }) {
   // console.log("props", data)
 
   return (
-    <header className="bg-slate-950 text-white py-24 sm:py-12 xl:h-screen">
+    <div className="bg-slate-950 text-white py-24 sm:py-12 xl:h-screen">
       <div className="container flex mx-auto px-4 h-full mt-6">
         <div className="flex flex-grow justify-between items-center flex-col gap-6 md:flex-row lg:flex-row ">
           <div className="flex flex-col align-middle max-w-2xl">
@@ -85,7 +90,8 @@ export default function Hero({ data, video }) {
                   </div>
                 </a>
               </button>
-              <button className="bg-red-600 hover:bg-red-800 transition duration-300 ease-in-out text-white font-medium py-3 px-6 rounded-full">
+              <button className="bg-red-600 hover:bg-red-800 transition duration-300 ease-in-out text-white font-medium py-3 px-6 rounded-full"
+              onClick={() => setIsModalOpen(true)}>
                 Subscribe
               </button>
             </div>
@@ -102,6 +108,11 @@ export default function Hero({ data, video }) {
           </div>
         </div>
       </div>
-    </header>
+            
+      {isModalOpen && (
+        <SubscribeModal onClose={() => setIsModalOpen(false)} />
+        )}
+
+    </div>
   );
 }
