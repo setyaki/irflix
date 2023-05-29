@@ -98,7 +98,7 @@ export default function MovieDetails() {
   return (
     <div>
         <nav
-        className={`invisible sm:visible bg-gradient-to-b from-slate-950 to-slate-950/0 text-white px-9 pb-9 pt-6 w-full h-auto fixed top-0 left-0 right-0 z-50 ${
+        className={`invisible sm:visible bg-gradient-to-b from-slate-950 to-slate-950/0 text-white px-9 pb-9 pt-6 w-full h-auto fixed top-0 left-0 right-0 z-[5] ${
           isNavbarVisible
             ? "visible transition-all duration-400"
             : "transform translate-y-[-100%] transition-all duration-300"
